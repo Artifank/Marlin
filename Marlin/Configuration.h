@@ -301,12 +301,12 @@
  */
 //#define MIXING_EXTRUDER
 #if ENABLED(MIXING_EXTRUDER)
-  #define MIXING_STEPPERS 2        // Number of steppers in your mixing extruder
-  #define MIXING_VIRTUAL_TOOLS 16  // Use the Virtual Tool method with M163 and M164
-  //#define DIRECT_MIXING_IN_G1    // Allow ABCDHI mix factors in G1 movement commands
-  //#define GRADIENT_MIX           // Support for gradient mixing with M166 and LCD
+  #define MIXING_STEPPERS 5        // Number of steppers in your mixing extruder
+  #define MIXING_VIRTUAL_TOOLS 32  // Use the Virtual Tool method with M163 and M164
+  #define DIRECT_MIXING_IN_G1      // Allow ABCDHI mix factors in G1 movement commands
+    #define GRADIENT_MIX             // Support for gradient mixing with M166 and LCD
   #if ENABLED(GRADIENT_MIX)
-    //#define GRADIENT_VTOOL       // Add M166 T to use a V-tool index as a Gradient alias
+    //#define GRADIENT_VTOOL         // Add M166 T to use a V-tool index as a Gradient alias
   #endif
 #endif
 
