@@ -949,7 +949,7 @@
  * vibration and surface artifacts. The algorithm adapts to provide the best possible step smoothing at the
  * lowest stepping frequencies.
  */
-//#define ADAPTIVE_STEP_SMOOTHING
+#define ADAPTIVE_STEP_SMOOTHING
 
 /**
  * Custom Microstepping
@@ -1583,7 +1583,7 @@
 #if ENABLED(BABYSTEPPING)
   //#define INTEGRATED_BABYSTEPPING           // EXPERIMENTAL integration of babystepping into the Stepper ISR
   //#define BABYSTEP_WITHOUT_HOMING
-  //#define BABYSTEP_ALWAYS_AVAILABLE         // Allow babystepping at all times (not just during movement).
+  #define BABYSTEP_ALWAYS_AVAILABLE         // Allow babystepping at all times (not just during movement).
   #define BABYSTEP_XY                       // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   #define BABYSTEP_MILLIMETER_UNITS         // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
@@ -1594,7 +1594,7 @@
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
     #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
                                             // Note: Extra time may be added to mitigate controller latency.
-    #define MOVE_Z_WHEN_IDLE                // Jump to the move Z menu on doubleclick when printer is idle.
+    //#define MOVE_Z_WHEN_IDLE                // Jump to the move Z menu on doubleclick when printer is idle.
     #if ENABLED(MOVE_Z_WHEN_IDLE)
       #define MOVE_Z_IDLE_MULTIPLICATOR 5   // Multiply 1mm by this factor for the move step size.
     #endif
@@ -1869,7 +1869,7 @@
 #elif ENABLED(SDSUPPORT)
   #define BLOCK_BUFFER_SIZE 16
 #else
-  #define BLOCK_BUFFER_SIZE 32
+  #define BLOCK_BUFFER_SIZE 16
 #endif
 
 // @section serial
@@ -1972,11 +1972,11 @@
   #endif
   #define RETRACT_LENGTH 7                // (mm) Default retract length (positive value)
   #define RETRACT_LENGTH_SWAP 13          // (mm) Default swap retract length (positive value)
-  #define RETRACT_FEEDRATE 25             // (mm/s) Default feedrate for retracting
+  #define RETRACT_FEEDRATE 40             // (mm/s) Default feedrate for retracting
   #define RETRACT_ZRAISE 0.24             // (mm) Default retract Z-raise
   #define RETRACT_RECOVER_LENGTH 0        // (mm) Default additional recover length (added to retract length on recover)
   #define RETRACT_RECOVER_LENGTH_SWAP 0   // (mm) Default additional swap recover length (added to retract length on recover from toolchange)
-  #define RETRACT_RECOVER_FEEDRATE 25     // (mm/s) Default feedrate for recovering from retraction
+  #define RETRACT_RECOVER_FEEDRATE 40     // (mm/s) Default feedrate for recovering from retraction
   #define RETRACT_RECOVER_FEEDRATE_SWAP 8 // (mm/s) Default feedrate for recovering from swap retraction
   #if ENABLED(MIXING_EXTRUDER)
     //#define RETRACT_SYNC_MIXING         // Retract and restore all mixing steppers simultaneously
@@ -2075,11 +2075,11 @@
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   5  // (mm/s) Slow move when starting load.
-  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH    50  // (mm) Slow length, to allow time to insert material.
+  #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH     0  // (mm) Slow length, to allow time to insert material.
                                                   // 0 to disable start loading and skip to fast load only
   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE  20  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   500  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
