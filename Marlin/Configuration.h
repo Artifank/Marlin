@@ -865,7 +865,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN 29 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN 29 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1126,15 +1126,15 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 195
-#define Y_BED_SIZE 210
+#define X_BED_SIZE 225
+#define Y_BED_SIZE 225
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -10
-#define Y_MIN_POS -17
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 214
-#define Y_MAX_POS 214
+#define X_MAX_POS X_BED_SIZE
+#define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 240
 
 /**
