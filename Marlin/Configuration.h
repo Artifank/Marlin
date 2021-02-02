@@ -492,9 +492,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  20.73
-    #define DEFAULT_Ki   1.65
-    #define DEFAULT_Kd  64.97
+    #define DEFAULT_Kp 21.56
+    #define DEFAULT_Ki 1.75
+    #define DEFAULT_Kd 66.24
   #endif
 #endif // PIDTEMP
 
