@@ -104,16 +104,16 @@ void GcodeSuite::G35() {
     const float z_probed_height = probe.probe_at_point(screws_tilt_adjust_pos[i], PROBE_PT_RAISE, 0, true);
 
     if (isnan(z_probed_height)) {
-      SERIAL_ECHOPAIR("G35 failed at point ", int(i), " (");
-      serialprintPGM((char *)pgm_read_ptr(&tramming_point_name[i]));
-      serialprintPGM(PSTR(")"));
+      SERIAL_ECHOPAIR("G35 failed at point ", i, " (");
+      SERIAL_ECHOPGM_P((char *)pgm_read_ptr(&tramming_point_name[i]));
+      SERIAL_CHAR(')');
       SERIAL_ECHOLNPAIR_P(SP_X_STR, screws_tilt_adjust_pos[i].x, SP_Y_STR, screws_tilt_adjust_pos[i].y);
       err_break = true;
       break;
     }
 
     if (DEBUGGING(LEVELING)) {
-      DEBUG_ECHOPAIR("Probing point ", int(i), " (");
+      DEBUG_ECHOPAIR("Probing point ", i, " (");
       DEBUG_PRINT_P((char *)pgm_read_ptr(&tramming_point_name[i]));
       DEBUG_PRINT_P(PSTR(")"));
       SERIAL_ECHOLNPAIR_P(SP_X_STR, screws_tilt_adjust_pos[i].x, SP_Y_STR, screws_tilt_adjust_pos[i].y, SP_Z_STR, z_probed_height);
